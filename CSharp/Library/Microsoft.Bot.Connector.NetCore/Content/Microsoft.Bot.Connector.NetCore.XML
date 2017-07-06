@@ -3076,6 +3076,27 @@
             The name of the thing
             </summary>
         </member>
+        <member name="T:Microsoft.Bot.Connector.MediaEventValue">
+            <summary>
+            Supplementary parameter for media events
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Connector.MediaEventValue.#ctor">
+            <summary>
+            Initializes a new instance of the MediaEventValue class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Connector.MediaEventValue.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the MediaEventValue class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Connector.MediaEventValue.CardValue">
+            <summary>
+            Callback parameter specified in the Value field of the MediaCard
+            that originated this event
+            </summary>
+        </member>
         <member name="T:Microsoft.Bot.Connector.MediaUrl">
             <summary>
             MediaUrl data
