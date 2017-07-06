@@ -6,12 +6,14 @@
     "Microsoft.IdentityModel.Protocols.OpenIdConnect": "2.1.4",
     "Microsoft.Rest.ClientRuntime": "2.3.8",
     "Newtonsoft.Json": "10.0.3",
-    "System.IdentityModel.Tokens.Jwt": "5.1.4"
+    "System.IdentityModel.Tokens.Jwt": "5.1.4",
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
   },
   "buildOptions": {
     "xmlDoc": true
   },
   "frameworks": {
-    "netstandard1.4": {}
+    "netstandard1.5": {}
   }
 }
