@@ -6,11 +6,26 @@
     <AssemblyName>Microsoft.Bot.Builder.Autofac</AssemblyName>
     <PackageId>Microsoft.Bot.Builder.Autofac</PackageId>
     <PackageVersion>3.9.0</PackageVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Base\Extensions.cs" />
+    <Compile Include="Dialogs\Conversation.cs" />
+    <Compile Include="Dialogs\DialogModule.cs" />
+    <Compile Include="Fibers\DoNotSerializeResolver.cs" />
+    <Compile Include="Fibers\FiberModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scorables\Resolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.1" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.9" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Bot.Builder.NetStandard\Microsoft.Bot.Builder.csproj" />
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
   </ItemGroup>
 
 </Project>
