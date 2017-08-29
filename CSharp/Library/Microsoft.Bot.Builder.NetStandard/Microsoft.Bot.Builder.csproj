@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
+    <PackageId>Microsoft.Bot.Builder</PackageId>
+    <PackageVersion>3.9.0</PackageVersion>
+    <Author>Microsoft</Author>
+    <Description>
+      Microsoft Bot Builder is a powerful framework for constructing bots that can handle both freeform interactions and more guided ones where the possibilities are explicitly shown to the user. It is easy to use and leverages C# to provide a natural way to write bots.
+
+      High Level Features:
+      * Powerful dialog system with dialogs that are isolated and composable.
+      * Built-in dialogs for simple things like Yes/No, strings, numbers, enumerations.
+      * Built-in dialogs that utilize powerful AI frameworks like LUIS http://luis.ai.
+      * Bots are stateless which helps them scale.
+      * Form Flow for automatically generating a Bot from a C# class for filling in the class and that supports help, navigation, clarification and confirmation.
+
+      You might also be interested in the NuGet package Microsoft.Bot.Builder.FormFlow.Json that extends the Bot Builder with the abilitity to declaratively define FormFlow dialogs with JSON Schema.
+    </Description>
+    <ProjectUrl>https://github.com/Microsoft/BotBuilder</ProjectUrl>
+    <IconUrl>http://docs.botframework.com/images/bot_icon.png</IconUrl>
+    <Summary>Microsoft.Bot.Builder is a framework for easily building stateless bots that span from regular expressions to AI based natural language.</Summary>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+    <PackageReference Include="autorest" Version="1.2.1" />
+    <PackageReference Include="Chronic.Signed" Version="0.3.2" />
+    -->
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Bot.Builder.Autofac.NetStandard\Microsoft.Bot.Builder.Autofac.csproj" />
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
+  </ItemGroup>
+
+</Project>
