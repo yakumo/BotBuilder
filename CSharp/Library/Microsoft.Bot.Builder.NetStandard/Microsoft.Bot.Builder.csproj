@@ -27,10 +27,14 @@
   <ItemGroup>
     <!--
     <PackageReference Include="autorest" Version="1.2.1" />
-    <PackageReference Include="Chronic.Signed" Version="0.3.2" />
     -->
+    <PackageReference Include="Chronic.Signed" Version="0.3.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.9" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
   </ItemGroup>
 
   <!--
