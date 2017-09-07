@@ -63,10 +63,25 @@ namespace Microsoft.Bot.Connector
             TokenCacheKey = $"{MicrosoftAppId}-cache";
         }
 #else
+#if NETSTANDARD2_0 || NETAPP2_0
+        public static IConfigurationSection Configuration { get; set; }
+#endif
         public MicrosoftAppCredentials(string appId = null, string password = null, ILogger logger = null)
         {
             MicrosoftAppId = appId;
             MicrosoftAppPassword = password;
+
+#if NETSTANDARD2_0 || NETAPP2_0
+            if(appId == null)
+            {
+                MicrosoftAppId = Configuration?.GetSection(MicrosoftAppIdKey)?.Value ?? Environment.GetEnvironmentVariable(MicrosoftAppIdKey, EnvironmentVariableTarget.Process);
+            }
+
+            if (password == null)
+            {
+                MicrosoftAppPassword = Configuration?.GetSection(MicrosoftAppPasswordKey)?.Value ?? Environment.GetEnvironmentVariable(MicrosoftAppPasswordKey, EnvironmentVariableTarget.Process);
+            }
+#endif
 
             TokenCacheKey = $"{MicrosoftAppId}-cache";
             this.logger = logger;
