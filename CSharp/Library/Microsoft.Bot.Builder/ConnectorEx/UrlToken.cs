@@ -70,7 +70,11 @@ namespace Microsoft.Bot.Builder.Dialogs
                     var serializer = JsonSerializer.CreateDefault();
                     serializer.Serialize(writer, item);
                 }
+#if NETSTANDARD2_0
+                var token = HttpUtility.UrlEncode(memory.ToArray());
+#else
                 var token = HttpServerUtility.UrlTokenEncode(memory.ToArray());
+#endif
                 return token;
             }
         }
@@ -83,7 +87,11 @@ namespace Microsoft.Bot.Builder.Dialogs
         /// <returns>The item instance.</returns>
         public static T Decode<T>(string token)
         {
+#if NETSTANDARD2_0
+            var buffer = Encoding.UTF8.GetBytes(HttpUtility.UrlDecode(token));
+#else
             var buffer = HttpServerUtility.UrlTokenDecode(token);
+#endif
             using (var memory = new MemoryStream(buffer))
             using (var gzip = new GZipStream(memory, CompressionMode.Decompress))
             using (var reader = new BsonReader(gzip))

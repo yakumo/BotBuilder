@@ -65,7 +65,7 @@ namespace Microsoft.Bot.Builder.Dialogs
                     botId: activity.Recipient.Id,
                     channelId: activity.ChannelId,
                     userId: activity.From.Id,
-                    conversationId: activity.  Conversation.Id,
+                    conversationId: activity.Conversation.Id,
                     serviceUrl: activity.ServiceUrl
                 );
         }

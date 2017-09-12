@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
     <PackageId>Microsoft.Bot.Builder</PackageId>
     <PackageVersion>3.9.0</PackageVersion>
@@ -22,12 +23,10 @@
     <ProjectUrl>https://github.com/Microsoft/BotBuilder</ProjectUrl>
     <IconUrl>http://docs.botframework.com/images/bot_icon.png</IconUrl>
     <Summary>Microsoft.Bot.Builder is a framework for easily building stateless bots that span from regular expressions to AI based natural language.</Summary>
+    <RootNamespace>Microsoft.Bot.Builder</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <!--
-    <PackageReference Include="autorest" Version="1.2.1" />
-    -->
     <PackageReference Include="Chronic.Signed" Version="0.3.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
@@ -37,11 +36,125 @@
     <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
   </ItemGroup>
 
-  <!--
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Bot.Builder.Autofac.NetStandard\Microsoft.Bot.Builder.Autofac.csproj" />
-    <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
+  <!--
+    <Compile Include="../Microsoft.Bot.Builder/Base/EventLoop.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Extensions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/LocalizedScope.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Pair.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Range.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Resolver.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Scope.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/SetField.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Tasks.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Traits.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Base/Types.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/Address.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/BotData.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/BotToUser.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/IActivityLogger.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/IBotData.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/IBotDataBag.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/IChannelCapability.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/IConnectorClientFactory.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/KeyboardCard.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/LocaleFinder.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/PostToBot.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/Resolver.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/ResumptionContext.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/ResumptionCookie.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/ConnectorEx/UrlToken.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/Chain.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/CommandDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DeleteProfileScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DialogContext.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DialogRouter.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DialogSystem.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DialogTask.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DialogTaskManager.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/DispatchDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/EndConversation.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/Exceptions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/IDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/IDialogContext.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/IDialogTask.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/LuisDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/PromptDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/PromptRecognizer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Dialogs/ScoringEventLoop.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Awaitable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Exceptions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Extensions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Fiber.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/IStore.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Methods.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Serialization.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/StackStoreFactory.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Store.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Fibers/Wait.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Attributes.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Confirmation.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Extensions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Field.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/FieldReflector.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/FormBuilder.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/FormDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/FormState.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IField.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IForm.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IFormBuilder.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IFormDialog.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/ILocalizer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IPrompt.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IRecognize.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/IStep.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Language.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Localizer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/MatchAnalyzer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/MessageActivityHelper.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Recognize.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/FormFlow/Steps.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/CalendarPlus.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/EntityToType.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Extensions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/LuisModel.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/LuisOptions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/LuisService.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/Action.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/ActionParameter.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/CompositeChild.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/CompositeEntity.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/DialogResponse.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/DialogResponseEx.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/EntityRecommendation.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/IntentRecommendation.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Models/LuisResult.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Luis/Resolution.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/obj/Debug/netstandard2.0/Microsoft.Bot.Builder.NetStandard.AssemblyInfo.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Properties/AssemblyInfo.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Resource/Extensions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Resource/Resources.Designer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Actions.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Binder.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Binding.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/BindingComparer.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Dispatcher.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/FoldScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/InheritedAttributes.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/LuisIntentScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/MethodScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/OrderScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/RegexMatchScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/ResolverScorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Scorable.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/ScorableBase.cs"/>
+    <Compile Include="../Microsoft.Bot.Builder/Scorables/Scorables.cs"/>
+    -->
+    <Compile Include="../Microsoft.Bot.Builder/Base/*.cs" />
   </ItemGroup>
-  -->
+
+  <ItemGroup>
+    <EmbeddedResource Include="../Microsoft.Bot.Builder/**/*.resx" />
+  </ItemGroup>
 
 </Project>
