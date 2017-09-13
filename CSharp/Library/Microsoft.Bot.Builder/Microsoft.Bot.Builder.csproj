@@ -7,8 +7,10 @@
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <RootNamespace>Microsoft.Bot.Builder</RootNamespace>
     <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
+    <Version>3.9.1</Version>
+    <NoWarn>CS1998;CS1591;CS0419</NoWarn>
+
     <PackageId>Microsoft.Bot.Builder</PackageId>
-    <PackageVersion>3.9.0</PackageVersion>
     <Author>Microsoft</Author>
     <Description>
       Microsoft Bot Builder is a powerful framework for constructing bots that can handle both freeform interactions and more guided ones where the possibilities are explicitly shown to the user. It is easy to use and leverages C# to provide a natural way to write bots.
@@ -25,6 +27,9 @@
     <ProjectUrl>https://github.com/Microsoft/BotBuilder</ProjectUrl>
     <IconUrl>http://docs.botframework.com/images/bot_icon.png</IconUrl>
     <Summary>Microsoft.Bot.Builder is a framework for easily building stateless bots that span from regular expressions to AI based natural language.</Summary>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <NuspecFile>Microsoft.Bot.Builder.nuspec</NuspecFile>
   </PropertyGroup>
 
   <PropertyGroup Label="MultilingualAppToolkit">
@@ -32,7 +37,7 @@
     <MultilingualFallbackLanguage>en</MultilingualFallbackLanguage>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="Chronic, Version=0.3.2.0, Culture=neutral, PublicKeyToken=3bd1f1ef638b0d3c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Chronic.Signed.0.3.2\lib\net40\Chronic.dll</HintPath>
       <Private>True</Private>
@@ -60,21 +65,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="Chronic.Signed" Version="0.3.2" />
+    <PackageReference Include="re-Chronic" Version="0.3.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
-    <ProjectReference Include="..\Microsoft.Bot.Connector\Microsoft.Bot.Connector.csproj" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <ProjectReference Include="..\Microsoft.Bot.Connector.NetStandard\Microsoft.Bot.Connector.csproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetCore\Microsoft.Bot.Connector.NetCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard2.0' ">
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\EventLoop.cs" />
     <Compile Include="Base\Extensions.cs" />

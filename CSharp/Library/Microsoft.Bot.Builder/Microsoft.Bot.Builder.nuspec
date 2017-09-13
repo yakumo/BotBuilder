@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Microsoft.Bot.Builder</id>
-    <version>$version$</version>
+    <version>3.9.1</version>
     <authors>Microsoft</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
@@ -33,36 +33,47 @@
   </metadata>
   <files>
     <!-- assembly Microsoft.Bot.Connector -->
-    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\Microsoft.Bot.Connector.dll" target="lib\net46"/>
-    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\Microsoft.Bot.Connector.xml" target="lib\net46" />
-    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\Microsoft.Bot.Connector.pdb" target="lib\net46" />
+    <!-- from .csproj
+    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\net46\Microsoft.Bot.Connector.dll" target="lib\net46"/>
+    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\net46\Microsoft.Bot.Connector.xml" target="lib\net46" />
+    <file src="..\Microsoft.Bot.Connector.NetFramework\bin\release\net46\Microsoft.Bot.Connector.pdb" target="lib\net46" />
+    -->
     <!-- assembly Microsoft.Bot.Builder -->
-    <file src="..\Microsoft.Bot.Builder\bin\release\Microsoft.Bot.Builder.dll" target="lib\net46"/>
-    <file src="..\Microsoft.Bot.Builder\bin\release\Microsoft.Bot.Builder.xml" target="lib\net46" />
-    <file src="..\Microsoft.Bot.Builder\bin\release\Microsoft.Bot.Builder.pdb" target="lib\net46" />
+    <file src="..\Microsoft.Bot.Builder\bin\release\net46\Microsoft.Bot.Builder.dll" target="lib\net46"/>
+    <file src="..\Microsoft.Bot.Builder\bin\release\net46\Microsoft.Bot.Builder.xml" target="lib\net46" />
+    <file src="..\Microsoft.Bot.Builder\bin\release\net46\Microsoft.Bot.Builder.pdb" target="lib\net46" />
+    <file src="..\Microsoft.Bot.Builder\bin\release\netstandard2.0\Microsoft.Bot.Builder.dll" target="lib\netstandard2.0"/>
+    <file src="..\Microsoft.Bot.Builder\bin\release\netstandard2.0\Microsoft.Bot.Builder.xml" target="lib\netstandard2.0" />
+    <file src="..\Microsoft.Bot.Builder\bin\release\netstandard2.0\Microsoft.Bot.Builder.pdb" target="lib\netstandard2.0" />
     <!-- assembly Microsoft.Bot.Builder.Autofac -->
-    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\Microsoft.Bot.Builder.Autofac.dll"  target="lib\net46" />
-    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\Microsoft.Bot.Builder.Autofac.xml"  target="lib\net46" />
-    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\Microsoft.Bot.Builder.Autofac.pdb"  target="lib\net46" />
+    <!--
+    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\net46\Microsoft.Bot.Builder.Autofac.dll"  target="lib\net46" />
+    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\net46\Microsoft.Bot.Builder.Autofac.xml"  target="lib\net46" />
+    <file src="..\Microsoft.Bot.Builder.Autofac\bin\release\net46\Microsoft.Bot.Builder.Autofac.pdb"  target="lib\net46" />
+    -->
     <!-- source -->
     <file src="..\**\*.cs"
           exclude="**\obj\**\*.cs;..\Microsoft.Bot.Builder.Azure\**;..\Microsoft.Bot.Builder.Calling\**;..\Microsoft.Bot.Builder.FormFlow.Json\**;..\Microsoft.Bot.Builder.History\**;..\Microsoft.Bot.Connector.AspNetCore\**;..\Microsoft.Bot.Connector.NetCore\**"
           target="src" />
     <!-- tools -->
+    <!--
     <file src="..\..\tools\rview\bin\release\RView.exe" target="tools"/>
+    -->
     <!-- resources -->
-    <file src="bin\release\ar\*.dll" target="lib\net46\ar"/>
-    <file src="bin\release\cs\*.dll" target="lib\net46\cs"/>
-    <file src="bin\release\de-dE\*.dll" target="lib\net46\de-dE"/>
-    <file src="bin\release\pt-BR\*.dll" target="lib\net46\pt-BR"/>
-    <file src="bin\release\en\*.dll" target="lib\net46\en"/>
-    <file src="bin\release\es\*.dll" target="lib\net46\es"/>
-    <file src="bin\release\fa\*.dll" target="lib\net46\fa"/>
-    <file src="bin\release\fr\*.dll" target="lib\net46\fr"/>
-    <file src="bin\release\it\*.dll" target="lib\net46\it"/>
-    <file src="bin\release\ja\*.dll" target="lib\net46\ja"/>
-    <file src="bin\release\nl\*.dll" target="lib\net46\nl"/>
-    <file src="bin\release\ru\*.dll" target="lib\net46\ru"/>
-    <file src="bin\release\zh-hans\*.dll" target="lib\net46\zh-hans"/>
+    <!-- from .csproj
+    <file src="bin\release\ar\net46\*.dll" target="lib\net46\ar"/>
+    <file src="bin\release\cs\net46\*.dll" target="lib\net46\cs"/>
+    <file src="bin\release\de-dE\net46\*.dll" target="lib\net46\de-dE"/>
+    <file src="bin\release\pt-BR\net46\*.dll" target="lib\net46\pt-BR"/>
+    <file src="bin\release\en\net46\*.dll" target="lib\net46\en"/>
+    <file src="bin\release\es\net46\*.dll" target="lib\net46\es"/>
+    <file src="bin\release\fa\net46\*.dll" target="lib\net46\fa"/>
+    <file src="bin\release\fr\net46\*.dll" target="lib\net46\fr"/>
+    <file src="bin\release\it\net46\*.dll" target="lib\net46\it"/>
+    <file src="bin\release\ja\net46\*.dll" target="lib\net46\ja"/>
+    <file src="bin\release\nl\net46\*.dll" target="lib\net46\nl"/>
+    <file src="bin\release\ru\net46\*.dll" target="lib\net46\ru"/>
+    <file src="bin\release\zh-hans\net46\*.dll" target="lib\net46\zh-hans"/>
+    -->
   </files>
 </package>
