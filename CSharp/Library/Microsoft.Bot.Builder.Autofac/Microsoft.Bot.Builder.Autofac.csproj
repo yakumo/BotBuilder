@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Bot.Builder\Microsoft.Bot.Builder.csproj"/>
-    <ProjectReference Include="..\Microsoft.Bot.Connector.NetCore\Microsoft.Bot.Connector.NetCore.csproj"/>
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetFramework\Microsoft.Bot.Connector.csproj"/>
   </ItemGroup>
 
 </Project>
