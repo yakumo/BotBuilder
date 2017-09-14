@@ -54,9 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <PackageReference Include="Chronic" Version="0.3.2"/>
-    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]"/>
-    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]"/>
+    <PackageReference Include="Chronic" Version="0.3.2" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]" />
+    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="re-Chronic" Version="0.3.2" />

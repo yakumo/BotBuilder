@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net45;net46;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;net46</TargetFrameworks>
     <RootNamespace>Microsoft.Bot.Connector</RootNamespace>
     <AssemblyName>Microsoft.Bot.Connector</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -28,6 +28,12 @@
     <DefineConstants>$(DefineConstants);NET45</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netstandard2.0\Microsoft.Bot.Connector.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DocumentationFile>bin\Release\netstandard2.0\Microsoft.Bot.Connector.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="2.1.4" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
@@ -38,9 +44,9 @@
   </ItemGroup>
 
   <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
-    <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="[1.0.4.403061554]"/>
-    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]"/>
-    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]"/>
+    <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="[1.0.4.403061554]" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]" />
+    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]" />
   </ItemGroup>
   <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
     <Reference Include="System" />
@@ -80,7 +86,7 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Compile Include="**/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+  <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
     <Compile Include="BotAuthentication.cs" />
   </ItemGroup>
 
