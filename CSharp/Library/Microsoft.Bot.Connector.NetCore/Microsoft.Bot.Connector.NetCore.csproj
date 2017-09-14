@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45;net46</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Microsoft.Bot.Connector</RootNamespace>
     <AssemblyName>Microsoft.Bot.Connector.NetCore</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -21,21 +21,27 @@
     <IncludeSource>true</IncludeSource>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="2.1.4" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.0.0"/>
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup>
     <Compile Include="**/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup>
     <Content Include="Content\Microsoft.Bot.Connector.NetCore.XML" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Projectreference Include="..\Microsoft.Bot.Connector.NetFramework\Microsoft.Bot.Connector.csproj" />
   </ItemGroup>
 
 </Project>
