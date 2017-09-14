@@ -1,15 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;net46;netstandard2.0</TargetFrameworks>
     <RootNamespace>Microsoft.Bot.Connector</RootNamespace>
     <AssemblyName>Microsoft.Bot.Connector</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateDocumentation>true</GenerateDocumentation>
+    <DocumentationFile>Content\Microsoft.Bot.Connector.NetCore.XML</DocumentationFile>
     <Version>3.9.1</Version>
+    <NoWarn>CS1998;CS1591;CS0419</NoWarn>
 
     <IsPackable>true</IsPackable>
     <PackageId>Microsoft.Bot.Connector</PackageId>
+    <PackageOutputPath>../nuget</PackageOutputPath>
     <PackageIconUrl>https://bots.botframework.com/Client/Images/bot-framework-default-7.png</PackageIconUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageVersion>$(version)-alpha</PackageVersion>
@@ -19,6 +23,9 @@
     <Language>en-US</Language>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
+    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -30,19 +37,12 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.40306.1554, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.IdentityModel.Protocol.Extensions.1.0.4.403061554\lib\net45\Microsoft.IdentityModel.Protocol.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Rest.ClientRuntime.2.3.2\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+  <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
+    <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="[1.0.4.403061554]"/>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]"/>
+    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]"/>
+  </ItemGroup>
+  <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -80,7 +80,7 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Compile Include="**/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Compile Include="BotAuthentication.cs" />
   </ItemGroup>
 
