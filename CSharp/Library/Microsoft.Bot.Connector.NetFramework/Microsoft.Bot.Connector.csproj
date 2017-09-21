@@ -47,6 +47,7 @@
     <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="[1.0.4.403061554]" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="[2.3.2]" />
     <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]" />
+    <PackageReference Include="Microsoft.AspNet.WebApi" Version="[5.2.3]" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="[5.2.3]" />
   </ItemGroup>
   <ItemGroup Condition=" ('$(TargetFramework)' == 'net45') OR ('$(TargetFramework)' == 'net46') ">
