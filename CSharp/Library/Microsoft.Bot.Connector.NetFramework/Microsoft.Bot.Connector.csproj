@@ -98,8 +98,14 @@
     <Compile Include="BotAuthentication.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Content\Microsoft.Bot.Connector.NetCore.XML" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Content Include="bin\$(Configuration)\net45\Microsoft.Bot.Connector.xml" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Content Include="bin\$(Configuration)\net46\Microsoft.Bot.Connector.xml" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <Content Include="bin\$(Configuration)\netstandard2.0\Microsoft.Bot.Connector.xml" />
   </ItemGroup>
 
   <Import Project="..\Microsoft.Bot.Connector.Shared\Microsoft.Bot.Connector.Shared.projitems" Label="Shared" />
