@@ -7,7 +7,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GenerateDocumentation>true</GenerateDocumentation>
-    <DocumentationFile>Content\Microsoft.Bot.Connector.NetCore.XML</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Microsoft.Bot.Connector.xml</DocumentationFile>
     <Version>3.9.1</Version>
     <NoWarn>CS1998;CS1591;CS0419</NoWarn>
 
@@ -28,12 +28,6 @@
     <DefineConstants>$(DefineConstants);NET45</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DocumentationFile>bin\Debug\netstandard2.0\Microsoft.Bot.Connector.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DocumentationFile>bin\Release\netstandard2.0\Microsoft.Bot.Connector.xml</DocumentationFile>
-  </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="2.1.4" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
