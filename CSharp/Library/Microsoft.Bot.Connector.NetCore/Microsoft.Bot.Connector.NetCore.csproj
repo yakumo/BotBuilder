@@ -72,19 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
 
-  <!--
-  <ItemGroup>
-    < ! - - A reference to the entire .NET Framework is automatically included - - >
-    <None Include="project.json" />
-    <None Include="project.lock.json" />
-  </ItemGroup>
-  -->
-
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Compile Include="**/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <Compile Include="BotAuthentication.cs" />
+    <Compile Include="..\Microsoft.Bot.Connector.NetFramework\BotAuthentication.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
