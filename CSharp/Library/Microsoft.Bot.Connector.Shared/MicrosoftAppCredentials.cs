@@ -68,6 +68,18 @@ namespace Microsoft.Bot.Connector
             MicrosoftAppId = appId;
             MicrosoftAppPassword = password;
 
+#if !NETSTANDARD1_6
+            if(appId == null)
+            {
+                MicrosoftAppId = Environment.GetEnvironmentVariable(MicrosoftAppIdKey, EnvironmentVariableTarget.Process);
+            }
+
+            if(password == null)
+            {
+                MicrosoftAppPassword = Environment.GetEnvironmentVariable(MicrosoftAppPasswordKey, EnvironmentVariableTarget.Process);
+            }
+#endif
+
             TokenCacheKey = $"{MicrosoftAppId}-cache";
             this.logger = logger;
         }

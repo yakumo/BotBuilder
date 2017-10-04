@@ -13,11 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.4" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="[1.1.3]" />
@@ -44,10 +39,10 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <Compile Include="BotAuthentication2.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
+    <Compile Include="**/netcore2/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
   </ItemGroup>
   <ItemGroup Condition=" ( '$(TargetFramework)' == 'net46' ) OR ( '$(TargetFramework)' == 'netstandard1.6' ) ">
-    <Compile Include="**/*.cs" Exclude="BotAuthentication2.cs;**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
+    <Compile Include="**/*.cs" Exclude="**/AssemblyInfo.cs;**/*.AssemblyInfo.cs;BotAuthentication.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
