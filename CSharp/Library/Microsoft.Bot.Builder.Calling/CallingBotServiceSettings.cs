@@ -56,7 +56,11 @@ namespace Microsoft.Bot.Builder.Calling
             {
                 settings = new CallingBotServiceSettings
                 {
+#if NET45
                     CallbackUrl = ConfigurationManager.AppSettings.Get("Microsoft.Bot.Builder.Calling.CallbackUrl")
+#else
+                    CallbackUrl = Environment.GetEnvironmentVariable("Microsoft.Bot.Builder.Calling.CallbackUrl", EnvironmentVariableTarget.Process)
+#endif
                 };
             }
             catch (Exception e)

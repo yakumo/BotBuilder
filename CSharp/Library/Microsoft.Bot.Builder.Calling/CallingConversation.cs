@@ -87,7 +87,11 @@ namespace Microsoft.Bot.Builder.Calling
                 Trace.TraceInformation($"Processing X-Microsoft-Skype-Chain-ID: {parsedRequest.SkypeChainId}");
                 if (parsedRequest.Faulted())
                 {
+#if NET45
                     return context.Request.CreateResponse(parsedRequest.ParseStatusCode);
+#else
+                    return new HttpResponseMessage(parsedRequest.ParseStatusCode);
+#endif
                 }
                 else
                 {
@@ -113,7 +117,11 @@ namespace Microsoft.Bot.Builder.Calling
                     }
                     catch (Exception e)
                     {
+#if NET45
                         return context.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+#else
+                        return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+#endif
                     }
                 }
             }
