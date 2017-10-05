@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.Bot.Builder</RootNamespace>
     <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <Version>3.9.1</Version>
+    <Version>3.10.1</Version>
     <NoWarn>CS1998;CS1591;CS0419</NoWarn>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
@@ -21,12 +21,7 @@
     <DefineConstants>$(DefineConstants);NET45</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <PackageReference Include="Chronic" Version="0.3.2" />
-    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="[8.0.3]" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup>
     <PackageReference Include="re-Chronic" Version="0.3.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
