@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.Bot.Builder</RootNamespace>
     <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <Version>3.10.1</Version>
+    <Version>3.10.1.1</Version>
     <NoWarn>CS1998;CS1591;CS0419</NoWarn>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
