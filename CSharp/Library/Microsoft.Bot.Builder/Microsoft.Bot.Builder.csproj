@@ -10,6 +10,11 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <IsPackable>true</IsPackable>
+    <NuspecFile>Microsoft.Bot.Builder.nuspec</NuspecFile>
+    <PackageOutputPath>..\nuget</PackageOutputPath>
+    <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
   
   <PropertyGroup Label="MultilingualAppToolkit">
@@ -25,6 +30,7 @@
     <PackageReference Include="re-Chronic" Version="0.3.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="NuGet.CommandLine" Version="4.1.0" DevelopmentDependency="true" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
@@ -216,6 +222,10 @@
     <XliffResource Include="MultilingualResources\Microsoft.Bot.Builder.nl.xlf" />
     <XliffResource Include="MultilingualResources\Microsoft.Bot.Builder.ru.xlf" />
     <XliffResource Include="MultilingualResources\Microsoft.Bot.Builder.zh-Hans.xlf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="NuGet.CommandLine" Version="4.1.0" />
   </ItemGroup>
 
 </Project>

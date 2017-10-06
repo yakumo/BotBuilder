@@ -162,10 +162,17 @@ namespace Microsoft.Bot.Builder.Calling
                     return GenerateParsedResults(HttpStatusCode.BadRequest);
                 }
 
+#if NET45
                 if (Request.Content.IsMimeMultipartContent())
                 {
                     return await HandleMultipartRequest(Request).ConfigureAwait(false);
                 }
+#else
+                if (Request.Content.Headers.ContentDisposition != null)
+                {
+                    return await HandleMultipartRequest(Request).ConfigureAwait(false);
+                }
+#endif
 
                 var content = await Request.Content.ReadAsStringAsync().ConfigureAwait(false);
                 return GenerateParsedResults(HttpStatusCode.OK, content);
@@ -179,6 +186,7 @@ namespace Microsoft.Bot.Builder.Calling
 
         private async Task<ParsedCallingRequest> HandleMultipartRequest(HttpRequestMessage request)
         {
+#if NET45
             var streamProvider = await request.Content.ReadAsMultipartAsync().ConfigureAwait(false);
             var jsonContent =
                 streamProvider.Contents.FirstOrDefault(content => content.Headers.ContentType?.MediaType == "application/json");
@@ -198,6 +206,9 @@ namespace Microsoft.Bot.Builder.Calling
             }
 
             return GenerateParsedResults(HttpStatusCode.OK, json, otherContent.ReadAsStreamAsync());
+#else
+#error 未サポート！！！
+#endif
         }
 
         /// <summary>

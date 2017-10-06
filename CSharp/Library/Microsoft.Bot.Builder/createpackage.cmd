@@ -20,6 +20,6 @@ dotnet restore Microsoft.Bot.Builder.csproj
 dotnet build -c Release Microsoft.Bot.Builder.csproj
 msbuild /property:Configuration=release ..\..\tools\rview\rview.csproj
 for /f %%v in ('powershell -noprofile "(Get-Command .\bin\release\net46\Microsoft.Bot.Builder.dll).FileVersionInfo.FileVersion"') do set version=%%v
-..\..\packages\NuGet.CommandLine.4.1.0\tools\NuGet.exe pack Microsoft.Bot.Builder.nuspec -symbols -properties version=%version% -OutputDirectory ..\nuget
+rem ..\..\packages\NuGet.CommandLine.4.1.0\tools\NuGet.exe pack Microsoft.Bot.Builder.nuspec -symbols -properties version=%version% -OutputDirectory ..\nuget
+dotnet pack -c Release --no-build --include-symbols
 echo *** Finished building Microsoft.Bot.Builder
-
