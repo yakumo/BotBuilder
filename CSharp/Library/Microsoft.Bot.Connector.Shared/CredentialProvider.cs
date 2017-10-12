@@ -105,5 +105,17 @@ namespace Microsoft.Bot.Connector
             this.Password = configuration.GetSection(passwordKey)?.Value;
         }
     }
+
+    public static class SettingsUtils
+    {
+        public static string GetAppSettings(string key)
+        {
+#if !NETSTANDARD1_6
+            return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
+#else
+            return String.Empty;
+#endif
+        }
+    }
 #endif
 }

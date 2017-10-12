@@ -140,7 +140,11 @@ namespace Microsoft.Bot.Builder.Dialogs.Internals
         {
             if (botData.ETag != "*" && Deserialize(value).ETag != botData.ETag)
             {
+#if NET45
                 throw new HttpException((int)HttpStatusCode.PreconditionFailed, "Inconsistent SaveAsync based on ETag!");
+#else
+                throw new HttpListenerException((int)HttpStatusCode.PreconditionFailed, "Inconsistent SaveAsync based on ETag!");
+#endif
             }
         }
 

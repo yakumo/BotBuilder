@@ -60,11 +60,21 @@ namespace Microsoft.Bot.Builder.Internals.Fibers
             if (this.stream.Length > 0)
             {
                 this.stream.Position = 0;
+
+#if NET45
                 using (var gzip = new GZipStream(this.stream, CompressionMode.Decompress, leaveOpen: true))
                 {
                     item = (T)this.formatter.Deserialize(gzip);
                     return true;
                 }
+#else
+                using (var gzip = new GZipStream(this.stream, CompressionMode.Decompress, leaveOpen: true))
+                {
+                    var str = (string)this.formatter.Deserialize(gzip);
+                    item = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(str);
+                    return true;
+                }
+#endif
             }
 
             item = default(T);
@@ -74,10 +84,23 @@ namespace Microsoft.Bot.Builder.Internals.Fibers
         void IStore<T>.Save(T item)
         {
             this.stream.Position = 0;
+
+#if NET45
             using (var gzip = new GZipStream(this.stream, CompressionMode.Compress, leaveOpen: true))
             {
                 formatter.Serialize(gzip, item);
             }
+#else
+            var str = Newtonsoft.Json.JsonConvert.SerializeObject(item, new Newtonsoft.Json.JsonSerializerSettings
+            {
+                NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+                Formatting = Newtonsoft.Json.Formatting.None,
+            });
+            using (var gzip = new GZipStream(this.stream, CompressionMode.Compress, leaveOpen: true))
+            {
+                formatter.Serialize(gzip, str);
+            }
+#endif
 
             this.stream.SetLength(this.stream.Position);
         }
