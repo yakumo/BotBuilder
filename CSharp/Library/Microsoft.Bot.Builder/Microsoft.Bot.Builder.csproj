@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.Bot.Builder</RootNamespace>
     <AssemblyName>Microsoft.Bot.Builder</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <Version>3.10.1.1</Version>
+    <Version>3.11.1.2</Version>
     <NoWarn>CS1998;CS1591;CS0419</NoWarn>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
@@ -50,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Bot.Connector.NetCore\Microsoft.Bot.Connector.NetCore.csproj"/>
+    <ProjectReference Include="..\Microsoft.Bot.Connector.NetCore\Microsoft.Bot.Connector.NetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

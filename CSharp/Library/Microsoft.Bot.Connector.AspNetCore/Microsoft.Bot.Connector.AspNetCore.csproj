@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.Bot.Connector</RootNamespace>
     <AssemblyName>Microsoft.Bot.Connector</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <Version>3.10.1</Version>
+    <Version>3.11.1</Version>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GenerateDocumentation>true</GenerateDocumentation>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Microsoft.Bot.Connector.xml</DocumentationFile>
